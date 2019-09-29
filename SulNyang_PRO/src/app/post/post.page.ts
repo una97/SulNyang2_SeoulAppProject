@@ -30,7 +30,7 @@ export class PostPage implements OnInit {
   first = true;
   getSize: any;
   currentU: string;
-
+  name: string;
   user1Pic;
   user2Pic;
   tmpPic;
@@ -59,8 +59,47 @@ export class PostPage implements OnInit {
     this.stor.get('id').then((val) => {
       this.currentU = val;
     });
+    firebase.database().ref().once('value').then((snapshot) => {
+            // tslint:disable-next-line: prefer-const
+                let c = snapshot.child(`regisTxt/${this.code}/userid`).val();  //id
+                this.name = c;
+    });
   }
-
+  async delete() {
+    await this.atrCtrl.create({
+      header:'확인!',
+      message: '채팅방을 삭제하시겠습니까?',
+      buttons:[
+        {
+          text: '취소',
+          role: 'cancel',
+          cssClass:'secondary',
+          handler:(blah)=>{
+            console.log("삭제 안함");
+          }
+        },
+        {
+          text:'Okay',
+          handler:()=>{
+            firebase.database().ref().once('value').then((snapshot) => {
+              this.db.object(`regisTxt/${this.code}`).set(null);
+            });
+          }
+        }
+      ]
+    });
+    this.atrCtrl.create({
+      header: '알림',
+      message: '확인 취소 되었습니다.',
+      buttons: [{
+        text: '확인',
+        role: 'cancel'
+      }]
+    }).then(alertEl => {
+      alertEl.present();
+    });
+    this.router.navigateByUrl('mypostlist');
+  }
   load() {
     this.db.list('regisTxt/', ref => ref.orderByChild('code').equalTo(this.code)).valueChanges().subscribe(
       data => {
