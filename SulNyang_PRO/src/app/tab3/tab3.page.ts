@@ -30,22 +30,6 @@ export class Tab3Page {
       this.stor.get('id').then((val) => {
         this.ID = val;
       });
-      this.chattingRef = this.fs.collection('chatting', ref => ref.orderBy('Timestamp')).valueChanges();
-      const DB=firebase.firestore();
-      const collection = DB.collection('chatting');
-
-      collection.get().then(snapshot=>{
-        snapshot.forEach(doc=>{
-          const get1=doc.data().uid1;
-          const get2=doc.data().uid2;
-          console.log(get1+"    "+get2);
-          if((this.ID === get1)||(this.ID===get2)){
-            this.check=true;
-          }
-          console.log("체크"+this.check);
-        });
-      });
-      console.log("없음");
   }
 
   ionViewWillEnter() {
@@ -70,7 +54,22 @@ export class Tab3Page {
       console.log("없음");
   }
   ngOnInit(){
-    
+    this.chattingRef = this.fs.collection('chatting', ref => ref.orderBy('Timestamp')).valueChanges();
+      const DB=firebase.firestore();
+      const collection = DB.collection('chatting');
+
+      collection.get().then(snapshot=>{
+        snapshot.forEach(doc=>{
+          const get1=doc.data().uid1;
+          const get2=doc.data().uid2;
+          console.log(get1+"    "+get2);
+          if((this.ID === get1)||(this.ID===get2)){
+            this.check=true;
+          }
+          console.log("체크"+this.check);
+        });
+      });
+      console.log("없음");
   }
   openChat(you: string) {
     this.you = you;
