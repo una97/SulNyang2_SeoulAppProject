@@ -74,7 +74,7 @@
          "user_ratings_total" : 6
       },
       {
-         "formatted_address" : "대한민국 신당동 844번지 남산타운남산타운 동6동 2호 중구 서울특별시 KR",
+         "formatted_address" : "대한민국 서울특별시 중구 신당동 844번지 남산타운남산타운 동6동 2호",
          "geometry" : {
             "location" : {
                "lat" : 37.5491389,
@@ -337,7 +337,7 @@
          "user_ratings_total" : 1
       },
       {
-         "formatted_address" : "대한민국 만리동2가 10-1번지 105호 중구 서울특별시 KR",
+         "formatted_address" : "대한민국 서울특별시 중구 만리동2가 10-1번지 105호",
          "geometry" : {
             "location" : {
                "lat" : 37.5557031,
@@ -368,7 +368,7 @@
          "user_ratings_total" : 0
       },
       {
-         "formatted_address" : "대한민국 신당동 44-17번지 1층 중구 서울특별시 KR",
+         "formatted_address" : "대한민국 서울특별시 중구 신당동 44-17번지 1층",
          "geometry" : {
             "location" : {
                "lat" : 37.5604784,
@@ -399,7 +399,7 @@
          "user_ratings_total" : 0
       },
       {
-         "formatted_address" : "대한민국 신당동 844번지 남산타운 5호 상가2동 217 중구 서울특별시 KR",
+         "formatted_address" : "대한민국 서울특별시 중구 신당동 844번지 남산타운 5호 상가2동 217",
          "geometry" : {
             "location" : {
                "lat" : 37.5491389,

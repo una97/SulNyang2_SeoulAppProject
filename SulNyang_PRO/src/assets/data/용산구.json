@@ -418,7 +418,7 @@
          "user_ratings_total" : 1
       },
       {
-         "formatted_address" : "대한민국 이태원동 531번지 용산구 서울특별시 KR",
+         "formatted_address" : "대한민국 서울특별시 용산구 이태원동 531번지",
          "geometry" : {
             "location" : {
                "lat" : 37.5363658,
@@ -552,40 +552,6 @@
             "establishment"
          ],
          "user_ratings_total" : 2
-      },
-      {
-         "formatted_address" : "대한민국 서울특별시 마포구 공덕동 256-13",
-         "geometry" : {
-            "location" : {
-               "lat" : 37.5445093,
-               "lng" : 126.9526393
-            },
-            "viewport" : {
-               "northeast" : {
-                  "lat" : 37.54585912989273,
-                  "lng" : 126.9539891298927
-               },
-               "southwest" : {
-                  "lat" : 37.54315947010728,
-                  "lng" : 126.9512894701073
-               }
-            }
-         },
-         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
-         "id" : "7c121ae403dd2dbd78e20495f8a4f243a04ffc32",
-         "name" : "공덕건강한동물병원",
-         "opening_hours" : {
-            "open_now" : false
-         },
-         "place_id" : "ChIJs3GZ6qCYfDURWalpcoqkO6E",
-         "plus_code" : {
-            "compound_code" : "GXV3+R3 서울특별시",
-            "global_code" : "8Q98GXV3+R3"
-         },
-         "rating" : 4.6,
-         "reference" : "ChIJs3GZ6qCYfDURWalpcoqkO6E",
-         "types" : [ "veterinary_care", "point_of_interest", "establishment" ],
-         "user_ratings_total" : 5
       },
       {
          "formatted_address" : "대한민국 보광동 259-1번지 용산구 서울특별시 KR",

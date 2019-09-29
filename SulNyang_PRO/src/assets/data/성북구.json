@@ -228,7 +228,7 @@
          "user_ratings_total" : 0
       },
       {
-         "formatted_address" : "번지 1 층, 1125-9 길음동 성북구 서울특별시 대한민국",
+         "formatted_address" : "대한민국 서울특별시 성북구 길음동 1125-9번지 1 층",
          "geometry" : {
             "location" : {
                "lat" : 37.6107834,
@@ -508,47 +508,6 @@
          "reference" : "ChIJzT5Mpt-9fDURTyZjblK_-Zc",
          "types" : [ "veterinary_care", "point_of_interest", "establishment" ],
          "user_ratings_total" : 0
-      },
-      {
-         "formatted_address" : "대한민국 서울특별시 중랑구 중화2동 207",
-         "geometry" : {
-            "location" : {
-               "lat" : 37.5952831,
-               "lng" : 127.0799032
-            },
-            "viewport" : {
-               "northeast" : {
-                  "lat" : 37.59663292989272,
-                  "lng" : 127.0812530298927
-               },
-               "southwest" : {
-                  "lat" : 37.59393327010728,
-                  "lng" : 127.0785533701073
-               }
-            }
-         },
-         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
-         "id" : "026e6268466769aa50fa1c8cb353f00c156b4773",
-         "name" : "로얄동물메디컬센터",
-         "photos" : [
-            {
-               "height" : 4032,
-               "html_attributions" : [
-                  "\u003ca href=\"https://maps.google.com/maps/contrib/105784056064545285650/photos\"\u003e00tv Choi\u003c/a\u003e"
-               ],
-               "photo_reference" : "CmRaAAAAlcCWuBAJqnHPISv3avIu1reoOmaVlvnM53WaCZXK8aa6_DBgUie5CC80XgXZHueiu91uqr32_UTQX97eHzFOarfGvzLmbwKrG6GOJXVMtvZdfdrJiUtaWtqNFSbsMoZ-EhAkerk8TRHkRC-5CpBT2ysaGhSc84xQcULmf8nQYq1TkPq86Yfv8A",
-               "width" : 2268
-            }
-         ],
-         "place_id" : "ChIJ-zwGXKq7fDURU2cZN2Lo8So",
-         "plus_code" : {
-            "compound_code" : "H3WH+4X 서울특별시",
-            "global_code" : "8Q99H3WH+4X"
-         },
-         "rating" : 4,
-         "reference" : "ChIJ-zwGXKq7fDURU2cZN2Lo8So",
-         "types" : [ "veterinary_care", "point_of_interest", "establishment" ],
-         "user_ratings_total" : 74
       }
    ],
    "status" : "OK"

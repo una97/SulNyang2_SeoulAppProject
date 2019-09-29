@@ -225,7 +225,7 @@
          "user_ratings_total" : 11
       },
       {
-         "formatted_address" : "대한민국 SEOUL YEONGDEUNGPO-GU 영등포동",
+         "formatted_address" : "대한민국 서울특별시 영등포구 영등포동",
          "geometry" : {
             "location" : {
                "lat" : 37.5171897,
@@ -364,50 +364,6 @@
          "reference" : "ChIJ91kQdQiffDURm9dSr5R2xo8",
          "types" : [ "veterinary_care", "point_of_interest", "establishment" ],
          "user_ratings_total" : 0
-      },
-      {
-         "formatted_address" : "대한민국 서울특별시 양천구 목2동 목동중앙북로 73",
-         "geometry" : {
-            "location" : {
-               "lat" : 37.546797,
-               "lng" : 126.8715106
-            },
-            "viewport" : {
-               "northeast" : {
-                  "lat" : 37.54814682989272,
-                  "lng" : 126.8728604298927
-               },
-               "southwest" : {
-                  "lat" : 37.54544717010728,
-                  "lng" : 126.8701607701073
-               }
-            }
-         },
-         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
-         "id" : "cf814a0c41e61559b7e0a76bb71670920ee87cc9",
-         "name" : "두암한방동물병원",
-         "opening_hours" : {
-            "open_now" : false
-         },
-         "photos" : [
-            {
-               "height" : 3712,
-               "html_attributions" : [
-                  "\u003ca href=\"https://maps.google.com/maps/contrib/112270500167421702420/photos\"\u003eJinyeong Jeong\u003c/a\u003e"
-               ],
-               "photo_reference" : "CmRaAAAAKh3kFVz-XFb5QCoLdz4N1J2s5nUjrtH4tHACYdZYvYvx9PL2tLlAJbeL1-oAOP5e-A7HDE6X6RKD9-f3mTHPAmWRffmNagsq15fe6aKCfhRSJaaYamjCBEDzfpDuqwPrEhBMkqFkq5xzuX8k3juDVXPyGhTRXyaN_cjOz8tiKr6REn18xCMJBg",
-               "width" : 5568
-            }
-         ],
-         "place_id" : "ChIJqTnh76aefDURyYIj15rjfgA",
-         "plus_code" : {
-            "compound_code" : "GVWC+PJ 서울특별시",
-            "global_code" : "8Q98GVWC+PJ"
-         },
-         "rating" : 4.5,
-         "reference" : "ChIJqTnh76aefDURyYIj15rjfgA",
-         "types" : [ "veterinary_care", "point_of_interest", "establishment" ],
-         "user_ratings_total" : 21
       },
       {
          "formatted_address" : "대한민국 서울특별시 영등포구 양평동2가 1-1",
@@ -697,7 +653,7 @@
          "user_ratings_total" : 0
       },
       {
-         "formatted_address" : "대한민국 5가 76번지 한신아파트 107동 1층 상가 12호 영등포구 서울특별시 KR",
+         "formatted_address" : "대한민국 서울특별시 영등포구 5가 76번지 한신아파트 107동 1층 상가 12호",
          "geometry" : {
             "location" : {
                "lat" : 37.538535,

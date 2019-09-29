@@ -87,7 +87,7 @@
          "user_ratings_total" : 2
       },
       {
-         "formatted_address" : "성수일로33 포레동물병원, Seongdong-gu, Seoul, 대한민국",
+         "formatted_address" : "대한민국 서울특별시 성동구 성수일로33 포레동물병원",
          "geometry" : {
             "location" : {
                "lat" : 37.5435773,
@@ -431,7 +431,7 @@
          "user_ratings_total" : 0
       },
       {
-         "formatted_address" : "63-1, 금호산길 성동구 서울특별시 대한민국",
+         "formatted_address" : "대한민국 서울특별시 성동구 금호산길 63-1",
          "geometry" : {
             "location" : {
                "lat" : 37.5540016,
@@ -523,37 +523,6 @@
          "user_ratings_total" : 11
       },
       {
-         "formatted_address" : "대한민국 서울특별시 광진구 구의동 233-27",
-         "geometry" : {
-            "location" : {
-               "lat" : 37.5446783,
-               "lng" : 127.0879039
-            },
-            "viewport" : {
-               "northeast" : {
-                  "lat" : 37.54602812989273,
-                  "lng" : 127.0892537298927
-               },
-               "southwest" : {
-                  "lat" : 37.54332847010729,
-                  "lng" : 127.0865540701073
-               }
-            }
-         },
-         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
-         "id" : "08a4a231e6f7a41152768d80c5f508bbf0e5d380",
-         "name" : "성동동물병원",
-         "place_id" : "ChIJT1-1AyalfDURC_anMer5I2Q",
-         "plus_code" : {
-            "compound_code" : "G3VQ+V5 서울특별시",
-            "global_code" : "8Q99G3VQ+V5"
-         },
-         "rating" : 0,
-         "reference" : "ChIJT1-1AyalfDURC_anMer5I2Q",
-         "types" : [ "veterinary_care", "point_of_interest", "establishment" ],
-         "user_ratings_total" : 0
-      },
-      {
          "formatted_address" : "대한민국 서울특별시 성동구 송정동 83",
          "geometry" : {
             "location" : {
@@ -614,47 +583,6 @@
          "reference" : "ChIJw335gamkfDURoU3njz2PK7o",
          "types" : [ "doctor", "health", "point_of_interest", "establishment" ],
          "user_ratings_total" : 1
-      },
-      {
-         "formatted_address" : "대한민국 서울특별시 광진구 중곡동 241-34",
-         "geometry" : {
-            "location" : {
-               "lat" : 37.562676,
-               "lng" : 127.0815429
-            },
-            "viewport" : {
-               "northeast" : {
-                  "lat" : 37.56402582989272,
-                  "lng" : 127.0828927298927
-               },
-               "southwest" : {
-                  "lat" : 37.56132617010728,
-                  "lng" : 127.0801930701072
-               }
-            }
-         },
-         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
-         "id" : "0e455aa9188ba3ace094b8a9962f9de941449b3a",
-         "name" : "중곡종합동물병원",
-         "photos" : [
-            {
-               "height" : 4032,
-               "html_attributions" : [
-                  "\u003ca href=\"https://maps.google.com/maps/contrib/117133032155874738289/photos\"\u003e이승현\u003c/a\u003e"
-               ],
-               "photo_reference" : "CmRaAAAAY-j24HkmthrFJbMx35KkBM_dFhW35_budNTtdcMsdS5jnhq_1Pmuw-EjI71We62WFLpgNi0MWU467uVWztk_C5q6EnCMv9PPf0zRip9GfvjZSqjuSDXuZJB5NWsywsRLEhACNiXHC34hoxw_I16KeFZ4GhTMxZbZ_QnypUyRj0V_vA0JUXUV_w",
-               "width" : 3024
-            }
-         ],
-         "place_id" : "ChIJs4UXuCm7fDURvByTgNnpiZY",
-         "plus_code" : {
-            "compound_code" : "H37J+3J 서울특별시",
-            "global_code" : "8Q99H37J+3J"
-         },
-         "rating" : 4.6,
-         "reference" : "ChIJs4UXuCm7fDURvByTgNnpiZY",
-         "types" : [ "veterinary_care", "point_of_interest", "establishment" ],
-         "user_ratings_total" : 10
       }
    ],
    "status" : "OK"
