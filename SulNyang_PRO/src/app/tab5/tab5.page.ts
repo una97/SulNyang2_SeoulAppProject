@@ -151,11 +151,11 @@ user: User = {
   }
   async atrLout() {
     const alert = await this.alertCtrl.create({
-      header: '확인',
+      header: '알림',
       message: '로그아웃되었습니다',
       buttons: [
         {
-          text: 'Okay',
+          text: '확인',
           role: 'cancel',
           handler: (blah) => {
             console.log('logout');
@@ -173,6 +173,8 @@ user: User = {
     this.userauth = null;
     this.usergu = null;
     this.userdong = null;
+    this.username = null;
+    this.password = null;
     this.stor.set('id', null);
     this.stor.set('email', null);
     this.stor.set('pic', null);
@@ -226,5 +228,77 @@ user: User = {
   }
   gomypost() {
     this.router.navigate(['mypostlist']);
+  }
+  async alertDelete(){
+    const alert = await this.alertCtrl.create({
+      header:'알림',
+      message: '탈퇴 처리 되었습니다.',
+      buttons:[
+        {
+          text:'확인',
+          role:'cancel',
+          handler:(blah)=>{
+            console.log('탈퇴');
+            //this.router.navigateByUrl('tabs/tab1');
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+  async gogone() { 
+    const al = await this.alertCtrl.create({
+      header:'알림',
+      message: '탈퇴 하시겠습니까?',
+      buttons:[
+        {
+          text:'아니오',
+          role:'cancel',
+          cssClass:'secondary',
+          handler:(blah)=>{
+          }
+        },
+        {
+          text:'네',
+          handler:()=>{
+            this.afAuth.auth.currentUser.delete().then(() => {
+              this.afAuth.auth.signOut();
+            }).catch(function(error) {
+              this.atrCtrl.create({
+                header: '알림',
+                message: '다시 로그인 후 시도해 주세요',
+                buttons: [{
+                  text: '확인',
+                  role: 'cancel'
+                }]
+              }).then(alertEl => {
+                alertEl.present();
+              });
+            });
+            this.userid = null;
+            this.useremail = null;
+            this.userpic = null;
+            this.userauth = null;
+            this.usergu = null;
+            this.userdong = null;
+            this.username = null;
+            this.password = null;
+            this.stor.set('id', null);
+            this.stor.set('email', null);
+            this.stor.set('pic', null);
+            this.stor.set('auth', null);
+            this.stor.set('gu', null);
+            this.stor.set('dong', null);
+            // tslint:disable-next-line:only-arrow-functions
+            firebase.auth().signOut().then(function() { // 채팅 못하도록 함
+              console.log('Sign-out successful');
+            });
+           this.alertDelete();
+            }
+          }
+      ]
+    });
+    await al.present();
+
   }
 }
