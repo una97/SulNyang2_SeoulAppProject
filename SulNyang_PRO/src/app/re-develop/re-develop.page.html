@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color ="medium">
+      <ion-buttons slot="start">
+          <ion-back-button text="" defaultHref="/tabs/tab1"></ion-back-button>
+        </ion-buttons>
+    <ion-title>재개발 지역</ion-title>
+  </ion-toolbar>
+  
+  <ion-segment [(ngModel)]="segment" (ionChange)="segmentChanged($event)" >
+      <ion-segment-button value="one">
+      <ion-label>재건축 사업구역</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="two">
+          <ion-label>도시정비형</ion-label>
+      </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content>
+    <div id="map" style="width:100%;height:30%;"></div>
+<ion-list>
+  <ion-item (click)="showMarker(item,i)" *ngFor="let item of displayData; let i=index">
+      <table cellpadding="100">
+        <tr> &nbsp; 
+    
+        </tr>
+          <tr>{{item.address}}</tr>
+          <tr>기존 건축물 철거시기 &nbsp; &nbsp; 19.08.16~</tr>
+          <tr> &nbsp; </tr>
+          
+        </table>
+  </ion-item>
+</ion-list>
+</ion-content>

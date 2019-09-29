@@ -1,9 +1,63 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab 5
-    </ion-title>
+  <ion-toolbar color = "primary">
+      <ion-buttons slot = "start">
+        </ion-buttons>
+    <section *ngIf ="(afAuth.user | async) as user; else loginTitle">
+    <ion-title>마이페이지</ion-title>
+    </section>
+    <ng-template #loginTitle>
+        <ion-title>로그인</ion-title>
+    </ng-template>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content padding>
+  <section *ngIf ="userid!=null; else loginItems">
+     <p align="center"><b>{{userid}}</b>님&nbsp;/&nbsp;<b>{{usergu}}&nbsp;{{userdong}}</b></p>
+     <div align="center">
+       <ion-avatar>
+        <img id="upic" src="{{userpic}}">
+      </ion-avatar>
+      <ion-button shape="round" ion-button (click)="pickPicture()">
+          <ion-icon name="image"></ion-icon>
+      </ion-button>
+    </div>
+    <br><br>
+    <ion-item>
+         <button class="transparent-button" (click)="gomypost()">내가 쓴 글</button>
+    </ion-item>
+    <section *ngIf="userauth=='일반사용자'; else admin">
+      <ion-item>
+        <button class="transparent-button" (click)="gomyinform()">내 제보</button>
+      </ion-item>
+    </section>
+    <ng-template #admin>
+      <ion-item>
+        <button class="transparent-button" (click)="gomyinform()">제보 확인</button>
+      </ion-item>
+    </ng-template>
+    <br><br>
+    <div align="center">
+    <ion-button (click)="logout()">로그아웃</ion-button>
+    </div>
+  </section>
+  
+  <ng-template #loginItems>
+  <ion-list>
+      <ion-item>
+        <ion-label position="floating" id = "input-name">이메일</ion-label>
+        <ion-input type="text" [(ngModel)]="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" id ="input-password">비밀번호</ion-label>
+        <ion-input type="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+  </ion-list>
+
+  <ion-button fill="solid" expand="block" (click)="login()">Login</ion-button>
+  <br>
+  <p align="center">
+  아직 회원이 아니신가요?&nbsp;<ion-button shape="round" fill="outline" class="butn" [routerLink]="['/register']" routerDirection="forward">회원가입</ion-button>
+  </p>
+</ng-template>
+</ion-content>

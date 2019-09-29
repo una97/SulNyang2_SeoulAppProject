@@ -1,0 +1,37 @@
+{
+   "html_attributions" : [],
+   "results" : [
+      {
+         "formatted_address" : "대한민국 면목동 17-31번지 1층 청파빌딩 중랑구 서울특별시 KR",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.5899226,
+               "lng" : 127.0973606
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.59127242989271,
+                  "lng" : 127.0987104298927
+               },
+               "southwest" : {
+                  "lat" : 37.58857277010727,
+                  "lng" : 127.0960107701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "a61f2152d0529657dd6659c7790db9d2beca9259",
+         "name" : "보담동물병원",
+         "place_id" : "ChIJ-c_UHVm6fDUR7oirmR5Fivo",
+         "plus_code" : {
+            "compound_code" : "H3QW+XW 서울특별시",
+            "global_code" : "8Q99H3QW+XW"
+         },
+         "rating" : 0,
+         "reference" : "ChIJ-c_UHVm6fDUR7oirmR5Fivo",
+         "types" : [ "point_of_interest", "establishment" ],
+         "user_ratings_total" : 0
+      }
+   ],
+   "status" : "OK"
+}
