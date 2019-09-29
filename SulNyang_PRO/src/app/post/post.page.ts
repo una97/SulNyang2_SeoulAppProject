@@ -68,14 +68,14 @@ export class PostPage implements OnInit {
   async alertDelete(){
     const alert = await this.atrCtrl.create({
       header:'확인!',
-      message: '채팅방이 삭제되었습니다.',
+      message: '글이 삭제되었습니다.',
       buttons:[
         {
           text:'Okay',
           role:'cancel',
           handler:(blah)=>{
-            console.log('채팅방 삭제');
-            this.router.navigateByUrl('/tabs/tab1');
+            console.log('글 삭제');
+            this.router.navigateByUrl('mypostlist');
           }
         }
       ]
@@ -83,7 +83,7 @@ export class PostPage implements OnInit {
     await alert.present();
   }
 
-  async delete(){ // 채팅 목록 삭제
+  async delete(){ 
 
     const al = await this.atrCtrl.create({
       header:'알림',
@@ -103,7 +103,6 @@ export class PostPage implements OnInit {
               this.db.object(`regisTxt/${this.code}`).set(null);
             });
               this.alertDelete();
-              this.router.navigateByUrl('mypostlist');
             }
           }
       ]
