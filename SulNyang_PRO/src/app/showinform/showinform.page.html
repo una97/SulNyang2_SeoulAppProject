@@ -7,7 +7,7 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
-  <ion-card>
+  <ion-card class="user_">
     <ion-card-content *ngFor="let item of item">
         <ion-item lines="none">
             <img width="100%" height="200px" src="{{item.img}}"/>
@@ -40,28 +40,30 @@
     <!-- Disabled and readonly textarea in an item with a stacked label -->
         <ion-item lines="none">
           <ion-label position="stacked" lines="none" >
-            <b>제보내용</b>
+            <h1><b>제보내용</b></h1>
           </ion-label>
-          <textarea rows = '7'  class="textbox" style="width: 35vh; height: 10vh;" 
+        </ion-item>
+        <ion-item>
+          <ion-textarea rows = '7'  class="textbox" style="width:100%; height: 10vh;" 
             disabled
             readonly
             value="{{item.content}}">
-          </textarea>
+          </ion-textarea>
         </ion-item>
     </ion-card-content>
   </ion-card>
   
   <!--관리자이고 처리 전 제보일 때-->
-  <ion-card  *ngIf = "userauth == '관리자' && temp_complete == 0">
+  <ion-card class="card" *ngIf = "userauth == '관리자' && temp_complete == 0">
       <ion-item >
         <ion-label position="stacked" lines="none" >
-          <b>답변</b>
+          <h1><b>답변</b></h1>
         </ion-label>
           <ion-textarea rows ="6" [(ngModel)]="comment" clearOnEdit="true" placeholder="답변을 작성해 주세요" style="height:20vh;" ></ion-textarea>
         </ion-item>
-       </ion-card>
+  </ion-card>
   
-  <ion-card *ngIf = "temp_complete == 1">
+  <ion-card class="card" *ngIf = "temp_complete == 1">
     <ion-card-content>
       <ion-item>
         <ion-label position="stacked" lines="none" >
