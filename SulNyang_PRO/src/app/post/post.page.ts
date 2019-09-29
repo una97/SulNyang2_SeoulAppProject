@@ -140,7 +140,7 @@ export class PostPage implements OnInit {
       message: '본인이 작성한 게시글입니다',
       buttons: [
         {
-          text: 'Okay',
+          text: '확인',
           role: 'cancel',
           handler: (blah) => {
             console.log('나랑 채팅');
