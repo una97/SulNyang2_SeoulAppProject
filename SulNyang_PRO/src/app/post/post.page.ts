@@ -67,15 +67,15 @@ export class PostPage implements OnInit {
   }
   async alertDelete(){
     const alert = await this.atrCtrl.create({
-      header:'확인!',
+      header:'알림',
       message: '글이 삭제되었습니다.',
       buttons:[
         {
-          text:'Okay',
+          text:'확인',
           role:'cancel',
           handler:(blah)=>{
             console.log('글 삭제');
-            this.router.navigateByUrl('mypostlist');
+            this.router.navigateByUrl('tabs/tab1');
           }
         }
       ]
