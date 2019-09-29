@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import * as firebase from 'firebase';
 import {AngularFireStorage} from 'angularfire2/storage';
-import {AngularFireDatabase } from 'angularfire2/database';
+import {AngularFireDatabase, snapshotChanges } from 'angularfire2/database';
 import {Camera} from '@ionic-native/camera/ngx';
 
 interface User {
@@ -31,6 +31,7 @@ export class Tab5Page implements OnInit {
   public userauth: any;
   public usergu: string = null;
   public userdong: string = null;
+  temp_em: string;
 user: User = {
   email: '',
   password: '',
@@ -229,6 +230,30 @@ user: User = {
   gomypost() {
     this.router.navigate(['mypostlist']);
   }
+  changeNameForResign(){
+    // userInfo에서 삭제하기.
+    firebase.database().ref().once('value').then((snapshot) => {
+      this.db.object(`userInfo/${this.temp_em}`).set(null);
+      console.log('이메일', this.temp_em);
+    });
+    this.db.list('/informTxt', ref => ref.orderByChild('sender').equalTo(this.userid)).snapshotChanges()
+    .subscribe(actions => {
+        actions.forEach(action => {
+          // here you get the key
+          console.log(action.key);
+          this.db.list('/informTxt').update(action.key, { sender: '알수없음' });
+        });
+    });
+    this.db.list('/regisTxt', ref => ref.orderByChild('userid').equalTo(this.userid)).snapshotChanges()
+    .subscribe(actions => {
+        actions.forEach(action => {
+          // here you get the key
+          console.log(action.key);
+          this.db.list('/regisTxt').update(action.key, { sender: '알수없음' });
+        });
+    });
+
+  }
   async alertDelete(){
     const alert = await this.alertCtrl.create({
       header:'알림',
@@ -247,9 +272,10 @@ user: User = {
     await alert.present();
   }
   async gogone() { 
+    this.temp_em = this.useremail;
     const al = await this.alertCtrl.create({
       header:'알림',
-      message: '탈퇴 하시겠습니까?',
+      message: '작성하신 글은 삭제 되지 않습니다.<br/> 정말로 탈퇴 하시겠습니까?',
       buttons:[
         {
           text:'아니오',
@@ -266,7 +292,7 @@ user: User = {
             }).catch(function(error) {
               this.atrCtrl.create({
                 header: '알림',
-                message: '다시 로그인 후 시도해 주세요',
+                message: '다시 로그인 후 시도해 주세요!',
                 buttons: [{
                   text: '확인',
                   role: 'cancel'
@@ -275,6 +301,8 @@ user: User = {
                 alertEl.present();
               });
             });
+             // userInfo에서 삭제하기.
+            this.changeNameForResign();
             this.userid = null;
             this.useremail = null;
             this.userpic = null;

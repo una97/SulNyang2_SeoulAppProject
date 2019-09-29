@@ -73,6 +73,16 @@ export class RegisterPage implements OnInit {
     this.db.object(`userInfo/${strArray[0]}/userauth`).set(this.userauth);
     try {
       const res =  this.afAuth.auth.createUserWithEmailAndPassword(username, password);
+      this.alertCtrl.create({
+        header: '알림',
+        message: '회원 가입 완료 되었습니다.',
+        buttons: [{
+          text: '확인',
+          role: 'cancel'
+        }]
+      }).then(alertEl => {
+        alertEl.present();
+      });
       this.navCtrl.navigateBack('/tabs/tab5');
   } catch (error) {
     }
