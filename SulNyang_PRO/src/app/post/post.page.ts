@@ -65,41 +65,52 @@ export class PostPage implements OnInit {
                 this.name = c;
     });
   }
-  async delete() {
-    await this.atrCtrl.create({
+  async alertDelete(){
+    const alert = await this.atrCtrl.create({
       header:'확인!',
-      message: '채팅방을 삭제하시겠습니까?',
+      message: '글이 삭제되었습니다.',
       buttons:[
         {
-          text: '취소',
-          role: 'cancel',
-          cssClass:'secondary',
-          handler:(blah)=>{
-            console.log("삭제 안함");
-          }
-        },
-        {
           text:'Okay',
-          handler:()=>{
-            firebase.database().ref().once('value').then((snapshot) => {
-              this.db.object(`regisTxt/${this.code}`).set(null);
-            });
+          role:'cancel',
+          handler:(blah)=>{
+            console.log('글 삭제');
+            this.router.navigateByUrl('mypostlist');
           }
         }
       ]
     });
-    this.atrCtrl.create({
-      header: '알림',
-      message: '확인 취소 되었습니다.',
-      buttons: [{
-        text: '확인',
-        role: 'cancel'
-      }]
-    }).then(alertEl => {
-      alertEl.present();
-    });
-    this.router.navigateByUrl('mypostlist');
+    await alert.present();
   }
+
+  async delete(){ 
+
+    const al = await this.atrCtrl.create({
+      header:'알림',
+      message: '글을 삭제 하시겠습니까?',
+      buttons:[
+        {
+          text:'아니오',
+          role:'cancel',
+          cssClass:'secondary',
+          handler:(blah)=>{
+          }
+        },
+        {
+          text:'네',
+          handler:()=>{
+            firebase.database().ref().once('value').then((snapshot) => {
+              this.db.object(`regisTxt/${this.code}`).set(null);
+            });
+              this.alertDelete();
+            }
+          }
+      ]
+    });
+    await al.present();
+
+  }
+
   load() {
     this.db.list('regisTxt/', ref => ref.orderByChild('code').equalTo(this.code)).valueChanges().subscribe(
       data => {
