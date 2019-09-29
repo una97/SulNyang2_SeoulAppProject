@@ -131,5 +131,14 @@ export class ReDevelopPage implements OnInit {
       title:item.address,
       map:this.map
     });
+    this.showMessage(this.marker,item.address);
+  }
+  showMessage(marker,con){
+    var infoWindow=new google.maps.InfoWindow({
+      content:con
+    });
+    marker.addListener('click',function(){
+      infoWindow.open(marker.get(this.map),marker);
+    });
   }
 }

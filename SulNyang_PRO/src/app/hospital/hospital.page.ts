@@ -18,6 +18,7 @@ export class HospitalPage implements OnInit {
   hospitalName:any;
   map:any;
   marker:any=[];
+  infoContent=[];
   lat:any;
   lng:any;
   informGu:any;
@@ -86,6 +87,7 @@ export class HospitalPage implements OnInit {
       center:{lat:this.avgLat,lng:this.avgLng},
       zoom:13
     });
+
     for(let i=0;i<this.hospitalName.length;i++){
       var myLatlng=new google.maps.LatLng(this.hospitalName[i].geometry.location.lat,this.hospitalName[i].geometry.location.lng);
       this.marker[i]=new google.maps.Marker({
@@ -93,7 +95,15 @@ export class HospitalPage implements OnInit {
         title:this.hospitalName[i].name,
         map:this.map
       });
+      this.showMessage(this.marker[i],this.hospitalName[i].name);
     }
-    console.log(this.marker);
+  }
+  showMessage(marker,name){
+    var infoWindow=new google.maps.InfoWindow({
+      content:name
+    });
+    marker.addListener('click',function(){
+      infoWindow.open(marker.get(this.map),marker);
+    });
   }
 }
