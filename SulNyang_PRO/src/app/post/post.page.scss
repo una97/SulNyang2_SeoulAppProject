@@ -1,5 +1,11 @@
 .product_tabel td, .product_tabel th{ padding:5px;}
 .textbox {
     width: 280px;
-    height: 180px;
+    height: 40%;
   }
+ion-card{
+  display:flex;
+  flex-direction:column;
+  height:100% !important;
+  margin: 0 !important;
+}

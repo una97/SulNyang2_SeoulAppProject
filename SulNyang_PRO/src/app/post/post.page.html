@@ -45,11 +45,11 @@
   <!-- Disabled and readonly textarea in an item with a stacked label -->
       <ion-item>
         <ion-label position="stacked"></ion-label>
-        <textarea class="textbox"
+        <ion-textarea class="textbox"
           disabled
           readonly
           value="{{item.content}}">
-        </textarea>
+        </ion-textarea>
       </ion-item>
       <ion-button *ngIf=" name != currentU" expand="block" shape="round" fill="outline"(click)="gotoChat(item.userid)"><ion-icon name="contact"></ion-icon>채팅하러 가기</ion-button>
   </ion-card-content>
