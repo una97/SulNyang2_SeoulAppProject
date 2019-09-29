@@ -33,6 +33,7 @@ export class Tab3Page {
   }
 
   ionViewWillEnter() {
+    this.check=false;
     this.stor.get('id').then((val) => {
       this.ID = val;
     });
@@ -51,7 +52,7 @@ export class Tab3Page {
           console.log("체크"+this.check);
         });
       });
-      console.log("없음");
+      console.log("ionViewWillEnter()");
   }
   ngOnInit(){
     this.chattingRef = this.fs.collection('chatting', ref => ref.orderBy('Timestamp')).valueChanges();
@@ -69,7 +70,7 @@ export class Tab3Page {
           console.log("체크"+this.check);
         });
       });
-      console.log("없음");
+      console.log("ngOnInit()");
   }
   openChat(you: string) {
     this.you = you;
