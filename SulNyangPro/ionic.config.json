@@ -1,0 +1,7 @@
+{
+  "name": "SulNyangPro",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
