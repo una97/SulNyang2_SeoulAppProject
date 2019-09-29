@@ -4,7 +4,6 @@ import { Platform} from '@ionic/angular';
 import {ActivatedRoute, Router} from '@angular/router';
 import { NavController } from '@ionic/angular';
 import {AngularFireDatabase} from 'angularfire2/database';
-import { AlertController } from '@ionic/angular';
 import { userInfo } from 'os';
 @Component({
   selector: 'app-tab2',
@@ -21,8 +20,7 @@ public chosenGu='all';
 segment:string;
   constructor( 
     public router: Router,
-    public navCtrl: NavController, 
-    private alertCtrl:AlertController,
+    public navCtrl: NavController,
     public plat:Platform,
     public stor:Storage,
     public activatedRoute:ActivatedRoute,
@@ -30,7 +28,6 @@ segment:string;
   ) {
     this.stor.get('id').then((val)=>{
       this.userid = val;
-      console.log('탭2 유저 아이디는', this.userid);
     });
   }
   ngOnInit(){
@@ -60,21 +57,9 @@ segment:string;
   }
 
   goCreatePost() {
-    if(this.userid == null) {
-      this.alertCtrl.create({
-        header: '알림',
-        message: '로그인 후 이용해 주세요',
-        buttons: [{
-          text: '확인',
-          role: 'cancel'
-        }]
-      }).then(alertEl => {
-        alertEl.present();
-      });
-    }
-    else{
+    
       this.router.navigate(['create-post']);
-    }
+    
   }
   getPost(item: any) {
     this.code = item.code;
