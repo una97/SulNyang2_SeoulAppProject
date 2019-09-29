@@ -164,8 +164,18 @@ export class PostPage implements OnInit {
   async gotoChat(you: string) {
     if(this.currentU==null){
       this.havetoLogin();
-    }
-    else{
+    } else if(you == '(알수없음)') {
+      this.atrCtrl.create({
+        header: '알림',
+        message: '탈톼한 회원 입니다.',
+        buttons: [{
+          text: '확인',
+          role: 'cancel'
+        }]
+      }).then(alertEl => {
+        alertEl.present();
+      });
+    } else {
       this.check = false;
       const alert = await this.atrCtrl.create({
           header: '확인!',
