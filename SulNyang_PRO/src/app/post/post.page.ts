@@ -161,20 +161,23 @@ export class PostPage implements OnInit {
     });
     await alert3.present();
   }
+  async cannotChat(){
+    const alert4=await this.atrCtrl.create({
+      header: '알림',
+      message: '탈퇴한 회원 입니다.',
+      buttons: [{
+        text: '확인',
+        role: 'cancel'
+      }]
+    });
+    await alert4.present();
+  }
   async gotoChat(you: string) {
+    console.log(you);
     if(this.currentU==null){
       this.havetoLogin();
     } else if(you == '(알수없음)') {
-      this.atrCtrl.create({
-        header: '알림',
-        message: '탈톼한 회원 입니다.',
-        buttons: [{
-          text: '확인',
-          role: 'cancel'
-        }]
-      }).then(alertEl => {
-        alertEl.present();
-      });
+      this.cannotChat();
     } else {
       this.check = false;
       const alert = await this.atrCtrl.create({
