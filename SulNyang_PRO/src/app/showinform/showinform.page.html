@@ -7,7 +7,7 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
-  <ion-card class="user_">
+  <ion-card class="user_" style="height: 80%">
     <ion-card-content *ngFor="let item of item">
         <ion-item lines="none">
             <img width="100%" height="200px" src="{{item.img}}"/>
@@ -42,6 +42,7 @@
           <ion-label position="stacked" lines="none" >
             <h1><b>제보내용</b></h1>
           </ion-label>
+<<<<<<< HEAD
         </ion-item>
         <ion-item>
           <ion-textarea rows = '10'  class="textbox" style="width:100%; height: 10vh;" 
@@ -50,6 +51,16 @@
             value="{{item.content}}">
           </ion-textarea>
         </ion-item>
+=======
+          </ion-item>
+          <ion-item>
+            <ion-textarea class="textbox" rows="12"style="height:40%;"
+              disabled
+              readonly
+              value="{{item.content}}">
+            </ion-textarea>
+          </ion-item>
+>>>>>>> 55712023de8e30c2dc770b7d379be8d8075a63bd
     </ion-card-content>
   </ion-card>
   
@@ -59,7 +70,7 @@
         <ion-label position="stacked" lines="none" >
           <h1><b>답변</b></h1>
         </ion-label>
-          <ion-textarea rows ="6" [(ngModel)]="comment" clearOnEdit="true" placeholder="답변을 작성해 주세요" style="height:20vh;" ></ion-textarea>
+          <ion-textarea rows ="6" [(ngModel)]="comment" clearOnEdit="true" placeholder="답변을 작성해 주세요" style="height:10%;" ></ion-textarea>
         </ion-item>
   </ion-card>
   
@@ -69,14 +80,21 @@
         <ion-label position="stacked" lines="none" >
           <b>[답변]</b>
         </ion-label>
-          <ion-textarea rows ="6" readonly = "true" [(ngModel)]="comment" clearOnEdit="true" style="height:20vh;" >
+          <ion-textarea rows ="6" readonly = "true" [(ngModel)]="comment" clearOnEdit="true" style="height:10%;" >
           
           </ion-textarea>
         </ion-item>
+<<<<<<< HEAD
         <ion-button *ngIf= "userauth == '관리자' && temp_complete == 0"expand="block" shape="round" fill="outline" color="primary"  (click)="done()"> 확인 완료 </ion-button>
   <ion-button *ngIf= "userauth == '관리자' && temp_complete == 1"expand="block" shape="round" fill="outline" color="primary"  (click)="cancel()"> 확인 취소 </ion-button>
   <ion-button *ngIf= "userauth == '일반사용자' && temp_complete == 0"expand="block" shape="round" fill="outline" color="primary"  (click)= "cancel2()" > 삭제 </ion-button>
+=======
+>>>>>>> 55712023de8e30c2dc770b7d379be8d8075a63bd
         </ion-card-content>
   </ion-card>
   </ion-content>
+  <ion-button *ngIf= "userauth == '관리자' && temp_complete == 0"expand="block" shape="round" fill="outline" color="primary"  (click)="done()"> 확인 완료 </ion-button>
+  <ion-button *ngIf= "userauth == '관리자' && temp_complete == 1"expand="block" shape="round" fill="outline" color="primary"  (click)="cancel()"> 확인 취소 </ion-button>
+  <ion-button *ngIf= "userauth == '일반사용자' && temp_complete == 0"expand="block" shape="round" fill="outline" color="primary"  (click)= "cancel2()" > 삭제 </ion-button>
+
   
