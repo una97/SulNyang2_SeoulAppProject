@@ -44,7 +44,7 @@
           </ion-label>
         </ion-item>
         <ion-item>
-          <ion-textarea rows = '7'  class="textbox" style="width:100%; height: 10vh;" 
+          <ion-textarea rows = '10'  class="textbox" style="width:100%; height: 10vh;" 
             disabled
             readonly
             value="{{item.content}}">
@@ -76,8 +76,6 @@
         <ion-button *ngIf= "userauth == '관리자' && temp_complete == 0"expand="block" shape="round" fill="outline" color="primary"  (click)="done()"> 확인 완료 </ion-button>
   <ion-button *ngIf= "userauth == '관리자' && temp_complete == 1"expand="block" shape="round" fill="outline" color="primary"  (click)="cancel()"> 확인 취소 </ion-button>
   <ion-button *ngIf= "userauth == '일반사용자' && temp_complete == 0"expand="block" shape="round" fill="outline" color="primary"  (click)= "cancel2()" > 삭제 </ion-button>
-  
-  
         </ion-card-content>
   </ion-card>
   </ion-content>

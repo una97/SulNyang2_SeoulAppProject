@@ -27,18 +27,18 @@ export class Tab3Page {
     public db: AngularFireDatabase
     ) {
       // this.Email=this.af.auth.currentUser.email,
-      this.check=false;
+     // this.check=false;
       this.stor.get('id').then((val) => {
         this.ID = val;
       });
   }
 
   ionViewWillEnter() {
-    this.check=false;
+    //this.check=false;
     this.stor.get('id').then((val) => {
       this.ID = val;
     });
-    this.chattingRef = this.fs.collection('chatting', ref => ref.orderBy('Timestamp')).valueChanges();
+    /*this.chattingRef = this.fs.collection('chatting', ref => ref.orderBy('Timestamp')).valueChanges();
       const DB=firebase.firestore();
       const collection = DB.collection('chatting');
 
@@ -53,10 +53,10 @@ export class Tab3Page {
           console.log("체크"+this.check);
         });
       });
-      console.log("ionViewWillEnter()");
+      console.log("ionViewWillEnter()");*/
   }
   ngOnInit(){
-    this.chattingRef = this.fs.collection('chatting', ref => ref.orderBy('Timestamp')).valueChanges();
+    /*this.chattingRef = this.fs.collection('chatting', ref => ref.orderBy('Timestamp')).valueChanges();
       const DB=firebase.firestore();
       const collection = DB.collection('chatting');
 
@@ -72,7 +72,7 @@ export class Tab3Page {
           console.log("체크"+this.check);
         });
       });
-      console.log("ngOnInit()");
+      console.log("ngOnInit()");*/
   }
   openChat(you: string) {
     this.you = you;
