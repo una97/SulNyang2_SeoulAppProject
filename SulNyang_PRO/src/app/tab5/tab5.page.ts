@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import * as firebase from 'firebase';
 import {AngularFireStorage} from 'angularfire2/storage';
-import {AngularFireDatabase } from 'angularfire2/database';
+import {AngularFireDatabase, snapshotChanges } from 'angularfire2/database';
 import {Camera} from '@ionic-native/camera/ngx';
 
 interface User {
@@ -31,6 +31,7 @@ export class Tab5Page implements OnInit {
   public userauth: any;
   public usergu: string = null;
   public userdong: string = null;
+  temp_em: string;
 user: User = {
   email: '',
   password: '',
@@ -151,11 +152,11 @@ user: User = {
   }
   async atrLout() {
     const alert = await this.alertCtrl.create({
-      header: '확인',
+      header: '알림',
       message: '로그아웃되었습니다',
       buttons: [
         {
-          text: 'Okay',
+          text: '확인',
           role: 'cancel',
           handler: (blah) => {
             console.log('logout');
@@ -173,6 +174,8 @@ user: User = {
     this.userauth = null;
     this.usergu = null;
     this.userdong = null;
+    this.username = null;
+    this.password = null;
     this.stor.set('id', null);
     this.stor.set('email', null);
     this.stor.set('pic', null);
@@ -226,5 +229,104 @@ user: User = {
   }
   gomypost() {
     this.router.navigate(['mypostlist']);
+  }
+  changeNameForResign(){
+    // userInfo에서 삭제하기.
+    firebase.database().ref().once('value').then((snapshot) => {
+      this.db.object(`userInfo/${this.temp_em}`).set(null);
+      console.log('이메일', this.temp_em);
+    });
+    this.db.list('/informTxt', ref => ref.orderByChild('sender').equalTo(this.userid)).snapshotChanges()
+    .subscribe(actions => {
+        actions.forEach(action => {
+          // here you get the key
+          console.log(action.key);
+          this.db.list('/informTxt').update(action.key, { sender: '(알수없음)' });
+        });
+    });
+    this.db.list('/regisTxt', ref => ref.orderByChild('userid').equalTo(this.userid)).snapshotChanges()
+    .subscribe(actions => {
+        actions.forEach(action => {
+          // here you get the key
+          console.log(action.key);
+          this.db.list('/regisTxt').update(action.key, { userid: '(알수없음)' });
+        });
+    });
+
+  }
+  async alertDelete(){
+    const alert = await this.alertCtrl.create({
+      header:'알림',
+      message: '탈퇴 처리 되었습니다.',
+      buttons:[
+        {
+          text:'확인',
+          role:'cancel',
+          handler:(blah)=>{
+            console.log('탈퇴');
+            //this.router.navigateByUrl('tabs/tab1');
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+  async gogone() { 
+    this.temp_em = this.useremail;
+    const al = await this.alertCtrl.create({
+      header:'알림',
+      message: '작성하신 글은 삭제 되지 않습니다.<br/> 정말로 탈퇴 하시겠습니까?',
+      buttons:[
+        {
+          text:'아니오',
+          role:'cancel',
+          cssClass:'secondary',
+          handler:(blah)=>{
+          }
+        },
+        {
+          text:'네',
+          handler:()=>{
+            this.afAuth.auth.currentUser.delete().then(() => {
+              this.afAuth.auth.signOut();
+            }).catch(function(error) {
+              this.atrCtrl.create({
+                header: '알림',
+                message: '다시 로그인 후 시도해 주세요!',
+                buttons: [{
+                  text: '확인',
+                  role: 'cancel'
+                }]
+              }).then(alertEl => {
+                alertEl.present();
+              });
+            });
+             // userInfo에서 삭제하기.
+            this.changeNameForResign();
+            this.userid = null;
+            this.useremail = null;
+            this.userpic = null;
+            this.userauth = null;
+            this.usergu = null;
+            this.userdong = null;
+            this.username = null;
+            this.password = null;
+            this.stor.set('id', null);
+            this.stor.set('email', null);
+            this.stor.set('pic', null);
+            this.stor.set('auth', null);
+            this.stor.set('gu', null);
+            this.stor.set('dong', null);
+            // tslint:disable-next-line:only-arrow-functions
+            firebase.auth().signOut().then(function() { // 채팅 못하도록 함
+              console.log('Sign-out successful');
+            });
+           this.alertDelete();
+            }
+          }
+      ]
+    });
+    await al.present();
+
   }
 }

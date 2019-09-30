@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-
+import {ChartsModule} from 'ng2-charts';
 // Firebase Module
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -39,6 +39,7 @@ import { InAppBrowser} from '@ionic-native/in-app-browser/ngx';
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFirestoreModule,
+    ChartsModule,
     AngularFireModule.initializeApp(firebaseConfig, environment.firebase),
     IonicStorageModule,
     IonicStorageModule.forRoot(),

@@ -97,11 +97,11 @@ export class ChatViewPage implements OnInit {
   }
   async alertDelete(){
     const alert = await this.atrCtrl.create({
-      header:'확인!',
+      header:'알림',
       message: '채팅방이 삭제되었습니다.',
       buttons:[
         {
-          text:'Okay',
+          text:'확인',
           role:'cancel',
           handler:(blah)=>{
             console.log('채팅방 삭제');
@@ -116,11 +116,11 @@ export class ChatViewPage implements OnInit {
   async deleteList(){ // 채팅 목록 삭제
 
     const al = await this.atrCtrl.create({
-      header:'확인!',
+      header:'알림',
       message: '채팅방을 삭제하시겠습니까?',
       buttons:[
         {
-          text:'Cancel',
+          text:'아니오',
           role:'cancel',
           cssClass:'secondary',
           handler:(blah)=>{
@@ -128,7 +128,7 @@ export class ChatViewPage implements OnInit {
           }
         },
         {
-          text:'Okay',
+          text:'네',
           handler:()=>{
             console.log('채팅방 삭제');
             const db=firebase.firestore();

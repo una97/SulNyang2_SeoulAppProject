@@ -27,28 +27,14 @@ export class Tab3Page {
     public db: AngularFireDatabase
     ) {
       // this.Email=this.af.auth.currentUser.email,
+      this.check=false;
       this.stor.get('id').then((val) => {
         this.ID = val;
       });
-      this.chattingRef = this.fs.collection('chatting', ref => ref.orderBy('Timestamp')).valueChanges();
-      const DB=firebase.firestore();
-      const collection = DB.collection('chatting');
-
-      collection.get().then(snapshot=>{
-        snapshot.forEach(doc=>{
-          const get1=doc.data().uid1;
-          const get2=doc.data().uid2;
-          console.log(get1+"    "+get2);
-          if((this.ID === get1)||(this.ID===get2)){
-            this.check=true;
-          }
-          console.log("체크"+this.check);
-        });
-      });
-      console.log("없음");
   }
 
   ionViewWillEnter() {
+    this.check=false;
     this.stor.get('id').then((val) => {
       this.ID = val;
     });
@@ -67,10 +53,26 @@ export class Tab3Page {
           console.log("체크"+this.check);
         });
       });
-      console.log("없음");
+      console.log("ionViewWillEnter()");
   }
   ngOnInit(){
-    
+    this.chattingRef = this.fs.collection('chatting', ref => ref.orderBy('Timestamp')).valueChanges();
+      const DB=firebase.firestore();
+      const collection = DB.collection('chatting');
+
+      this.check=false;
+      collection.get().then(snapshot=>{
+        snapshot.forEach(doc=>{
+          const get1=doc.data().uid1;
+          const get2=doc.data().uid2;
+          console.log(get1+"    "+get2);
+          if((this.ID === get1)||(this.ID===get2)){
+            this.check=true;
+          }
+          console.log("체크"+this.check);
+        });
+      });
+      console.log("ngOnInit()");
   }
   openChat(you: string) {
     this.you = you;

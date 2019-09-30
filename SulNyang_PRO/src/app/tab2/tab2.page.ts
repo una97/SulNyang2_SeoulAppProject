@@ -15,7 +15,7 @@ public code: string;
 public writer: string;
 public items=[];
 public writerInfo=[];
-
+userid: string;
 public chosenGu='all';
 segment:string;
   constructor( 
@@ -26,7 +26,9 @@ segment:string;
     public activatedRoute:ActivatedRoute,
     public db:AngularFireDatabase
   ) {
-   
+    this.stor.get('id').then((val)=>{
+      this.userid = val;
+    });
   }
   ngOnInit(){
     this.segment='help';
@@ -55,7 +57,9 @@ segment:string;
   }
 
   goCreatePost() {
-    this.router.navigate(['create-post']);
+    
+      this.router.navigate(['create-post']);
+    
   }
   getPost(item: any) {
     this.code = item.code;
