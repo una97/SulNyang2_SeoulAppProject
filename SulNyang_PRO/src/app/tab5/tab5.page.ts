@@ -249,7 +249,7 @@ user: User = {
         actions.forEach(action => {
           // here you get the key
           console.log(action.key);
-          this.db.list('/regisTxt').update(action.key, { sender: '(알수없음)' });
+          this.db.list('/regisTxt').update(action.key, { userid: '(알수없음)' });
         });
     });
 
