@@ -1,16 +1,8 @@
 <ion-header>
   <ion-toolbar color = "primary">
-   
-      <ion-buttons slot="primary">
-       
-        <ion-button (click)="goCreatePost()" >
-            <ion-icon slot="icon-only" ios="ios-create" md="md-create"></ion-icon>
-          </ion-button>
-         
-      </ion-buttons>
-      <ion-title>게시판</ion-title>
+    <ion-title slot="start">게시판</ion-title>
   
-      <ion-select placeholder="구 선택" style="width: 13vh;" [(ngModel)]="chosenGu" (ionChange)="wantGu($event)">
+      <ion-select slot="end" placeholder="구 선택" style="width: 13vh;" [(ngModel)]="chosenGu" (ionChange)="wantGu($event)">
         <ion-select-option value="all" >전체 보기</ion-select-option>
         <ion-select-option value="강남구">강남구</ion-select-option>
         <ion-select-option value="강동구">강동구</ion-select-option>
@@ -38,6 +30,13 @@
         <ion-select-option value="중구">중구</ion-select-option>
         <ion-select-option value="중랑구">중랑구</ion-select-option>
         </ion-select>
+
+        <ion-buttons color="primary" slot="end">
+          <ion-button (click)="goCreatePost()" >
+              <ion-icon  ios="ios-create" md="md-create"></ion-icon>
+            </ion-button>
+           
+        </ion-buttons>
     </ion-toolbar>
 
   <ion-segment [(ngModel)]="segment" (ionChange)="segmentChanged($event)" >

@@ -27,6 +27,7 @@ export class Tab3Page {
     public db: AngularFireDatabase
     ) {
       // this.Email=this.af.auth.currentUser.email,
+      this.check=false;
       this.stor.get('id').then((val) => {
         this.ID = val;
       });
@@ -59,6 +60,7 @@ export class Tab3Page {
       const DB=firebase.firestore();
       const collection = DB.collection('chatting');
 
+      this.check=false;
       collection.get().then(snapshot=>{
         snapshot.forEach(doc=>{
           const get1=doc.data().uid1;
