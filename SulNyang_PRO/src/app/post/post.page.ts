@@ -7,6 +7,7 @@ import { Router , ActivatedRoute} from '@angular/router';
 import * as firebase from 'firebase';
 import { Storage } from '@ionic/storage';
 import { from } from 'rxjs';
+
 @Component({
   selector: 'app-post',
   templateUrl: './post.page.html',
