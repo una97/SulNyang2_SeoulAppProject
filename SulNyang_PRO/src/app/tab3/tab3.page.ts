@@ -26,8 +26,8 @@ export class Tab3Page {
     public atrCtrl: AlertController,
     public db: AngularFireDatabase
     ) {
-      // this.Email=this.af.auth.currentUser.email,
-      this.check=false;
+      //this.Email=this.af.auth.currentUser.email,
+     this.check=false;
       this.stor.get('id').then((val) => {
         this.ID = val;
       });
