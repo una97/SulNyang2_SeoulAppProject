@@ -42,7 +42,10 @@
            <h1><b>{{item.title}}</b></h1> 
         </ion-label>
     </ion-item>
-
+    <ion-item>
+      <ion-button *ngIf=" name != currentU" expand="block" shape="round" fill="outline"(click)="gotoChat(item.userid)"><ion-icon name="contact"></ion-icon>채팅하러 가기</ion-button>
+      <ion-button *ngIf = "name === currentU" expand="block" shape="round" fill="outline"(click)= "delete()" > 삭제 </ion-button>
+    </ion-item>
   <!-- Disabled and readonly textarea in an item with a stacked label -->
       <ion-item>
         <ion-label position="stacked"></ion-label>
@@ -50,8 +53,6 @@
           readonly
           value="{{item.content}}">
         </ion-textarea>
-        <ion-button *ngIf=" name != currentU" expand="block" shape="round" fill="outline"(click)="gotoChat(item.userid)"><ion-icon name="contact"></ion-icon>채팅하러 가기</ion-button>
-        <ion-button *ngIf = "name === currentU" expand="block" shape="round" fill="outline"(click)= "delete()" > 삭제 </ion-button>
       </ion-item>
     </ion-card-content>
 </ion-card>
